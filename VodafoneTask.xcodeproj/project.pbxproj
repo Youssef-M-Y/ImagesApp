@@ -17,6 +17,9 @@
 		62485D9F26B0621D0022C506 /* VodafoneTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62485D9E26B0621D0022C506 /* VodafoneTaskUITests.swift */; };
 		62485DB126B06B810022C506 /* ImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62485DB026B06B810022C506 /* ImagesViewController.swift */; };
 		62485DB726B06D9F0022C506 /* ImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62485DB626B06D9F0022C506 /* ImagesCell.swift */; };
+		62485DBD26B072760022C506 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62485DBC26B072760022C506 /* ApiRequest.swift */; };
+		62485DC326B0733B0022C506 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62485DC226B0733B0022C506 /* ImageModel.swift */; };
+		62485DCC26B075490022C506 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62485DCB26B075490022C506 /* HelperFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		62485DA026B0621D0022C506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62485DB026B06B810022C506 /* ImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesViewController.swift; sourceTree = "<group>"; };
 		62485DB626B06D9F0022C506 /* ImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCell.swift; sourceTree = "<group>"; };
+		62485DBC26B072760022C506 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		62485DC226B0733B0022C506 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		62485DCB26B075490022C506 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,9 @@
 		62485D7826B062180022C506 /* VodafoneTask */ = {
 			isa = PBXGroup;
 			children = (
+				62485DCA26B075350022C506 /* Helpers + Extensions */,
+				62485DC126B073260022C506 /* Model */,
+				62485DBB26B072620022C506 /* Network */,
 				62485DB526B06D7F0022C506 /* Views */,
 				62485DAF26B06ACF0022C506 /* ViewControllers */,
 				62485D7926B062180022C506 /* AppDelegate.swift */,
@@ -148,6 +157,30 @@
 				62485DB626B06D9F0022C506 /* ImagesCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		62485DBB26B072620022C506 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				62485DBC26B072760022C506 /* ApiRequest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		62485DC126B073260022C506 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				62485DC226B0733B0022C506 /* ImageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		62485DCA26B075350022C506 /* Helpers + Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				62485DCB26B075490022C506 /* HelperFunctions.swift */,
+			);
+			path = "Helpers + Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,10 +314,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				62485D7A26B062180022C506 /* AppDelegate.swift in Sources */,
+				62485DCC26B075490022C506 /* HelperFunctions.swift in Sources */,
 				62485DB726B06D9F0022C506 /* ImagesCell.swift in Sources */,
+				62485DBD26B072760022C506 /* ApiRequest.swift in Sources */,
 				62485D8426B062180022C506 /* VodafoneTask.xcdatamodeld in Sources */,
 				62485DB126B06B810022C506 /* ImagesViewController.swift in Sources */,
 				62485D7C26B062180022C506 /* SceneDelegate.swift in Sources */,
+				62485DC326B0733B0022C506 /* ImageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
