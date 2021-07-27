@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		62485D7A26B062180022C506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62485D7926B062180022C506 /* AppDelegate.swift */; };
 		62485D7C26B062180022C506 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62485D7B26B062180022C506 /* SceneDelegate.swift */; };
-		62485D7E26B062180022C506 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62485D7D26B062180022C506 /* ViewController.swift */; };
 		62485D8126B062180022C506 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62485D7F26B062180022C506 /* Main.storyboard */; };
 		62485D8426B062180022C506 /* VodafoneTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62485D8226B062180022C506 /* VodafoneTask.xcdatamodeld */; };
 		62485D8626B0621D0022C506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62485D8526B0621D0022C506 /* Assets.xcassets */; };
 		62485D8926B0621D0022C506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62485D8726B0621D0022C506 /* LaunchScreen.storyboard */; };
 		62485D9426B0621D0022C506 /* VodafoneTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62485D9326B0621D0022C506 /* VodafoneTaskTests.swift */; };
 		62485D9F26B0621D0022C506 /* VodafoneTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62485D9E26B0621D0022C506 /* VodafoneTaskUITests.swift */; };
+		62485DB126B06B810022C506 /* ImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62485DB026B06B810022C506 /* ImagesViewController.swift */; };
+		62485DB726B06D9F0022C506 /* ImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62485DB626B06D9F0022C506 /* ImagesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,6 @@
 		62485D7626B062180022C506 /* VodafoneTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VodafoneTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62485D7926B062180022C506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62485D7B26B062180022C506 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		62485D7D26B062180022C506 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		62485D8026B062180022C506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		62485D8326B062180022C506 /* VodafoneTask.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VodafoneTask.xcdatamodel; sourceTree = "<group>"; };
 		62485D8526B0621D0022C506 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +51,8 @@
 		62485D9A26B0621D0022C506 /* VodafoneTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VodafoneTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62485D9E26B0621D0022C506 /* VodafoneTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VodafoneTaskUITests.swift; sourceTree = "<group>"; };
 		62485DA026B0621D0022C506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62485DB026B06B810022C506 /* ImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesViewController.swift; sourceTree = "<group>"; };
+		62485DB626B06D9F0022C506 /* ImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +103,10 @@
 		62485D7826B062180022C506 /* VodafoneTask */ = {
 			isa = PBXGroup;
 			children = (
+				62485DB526B06D7F0022C506 /* Views */,
+				62485DAF26B06ACF0022C506 /* ViewControllers */,
 				62485D7926B062180022C506 /* AppDelegate.swift */,
 				62485D7B26B062180022C506 /* SceneDelegate.swift */,
-				62485D7D26B062180022C506 /* ViewController.swift */,
 				62485D7F26B062180022C506 /* Main.storyboard */,
 				62485D8526B0621D0022C506 /* Assets.xcassets */,
 				62485D8726B0621D0022C506 /* LaunchScreen.storyboard */,
@@ -129,6 +132,22 @@
 				62485DA026B0621D0022C506 /* Info.plist */,
 			);
 			path = VodafoneTaskUITests;
+			sourceTree = "<group>";
+		};
+		62485DAF26B06ACF0022C506 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				62485DB026B06B810022C506 /* ImagesViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		62485DB526B06D7F0022C506 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				62485DB626B06D9F0022C506 /* ImagesCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,9 +280,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62485D7E26B062180022C506 /* ViewController.swift in Sources */,
 				62485D7A26B062180022C506 /* AppDelegate.swift in Sources */,
+				62485DB726B06D9F0022C506 /* ImagesCell.swift in Sources */,
 				62485D8426B062180022C506 /* VodafoneTask.xcdatamodeld in Sources */,
+				62485DB126B06B810022C506 /* ImagesViewController.swift in Sources */,
 				62485D7C26B062180022C506 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
