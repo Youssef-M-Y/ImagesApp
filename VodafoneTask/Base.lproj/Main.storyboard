@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -30,15 +31,24 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0rU-6t-NqK">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="124"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jta-rK-74z">
+                                                    <rect key="frame" x="182" y="50" width="50" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Jta-rK-74z" firstAttribute="centerX" secondItem="uJN-j4-L7B" secondAttribute="centerX" id="2ut-pk-A8z"/>
                                                 <constraint firstItem="0rU-6t-NqK" firstAttribute="top" secondItem="uJN-j4-L7B" secondAttribute="top" id="Att-ay-vNn"/>
                                                 <constraint firstItem="0rU-6t-NqK" firstAttribute="leading" secondItem="uJN-j4-L7B" secondAttribute="leading" id="GO0-0b-v0O"/>
                                                 <constraint firstAttribute="trailing" secondItem="0rU-6t-NqK" secondAttribute="trailing" id="NJZ-aT-kUb"/>
+                                                <constraint firstItem="Jta-rK-74z" firstAttribute="centerY" secondItem="uJN-j4-L7B" secondAttribute="centerY" id="dYc-5g-asc"/>
                                                 <constraint firstAttribute="bottom" secondItem="0rU-6t-NqK" secondAttribute="bottom" id="u2o-Ub-ZIT"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="authorName" destination="Jta-rK-74z" id="jYA-PE-StM"/>
                                             <outlet property="myImage" destination="0rU-6t-NqK" id="SrN-2l-1tF"/>
                                         </connections>
                                     </tableViewCell>

@@ -19,13 +19,13 @@ class ImagesViewController: UIViewController {
             }
         }
     }
-    var count: Int?
+    var page = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureTableView()
-        getData()
+        getData(page: page)
     }
     
     private func configureTableView(){
@@ -33,13 +33,13 @@ class ImagesViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    private func getData(){
-        ApiRequest(method: "GET", url: "https://picsum.photos/v2/list?page=1&limit=10") {[weak self] (response, data) in
+    private func getData(page: Int){
+        ApiRequest(method: "GET", url: "https://picsum.photos/v2/list?page=\(page)&limit=10") {[weak self] (response, data) in
             if response.statusCode/100 == 2{
                 let decoder = JSONDecoder()
                 do{
                     let imagesResponse = try decoder.decode([ImageModel].self, from: data!)
-                    self?.imagesResponse = imagesResponse
+                    self?.imagesResponse.append(contentsOf: imagesResponse)
                     self?.loadImages()
                     print(self?.imagesResponse)
                 }
@@ -57,6 +57,8 @@ class ImagesViewController: UIViewController {
         let group = DispatchGroup()
         
         group.enter()
+        images = []
+        
         for imageResponse in imagesResponse{
             images.append(HelperMethods.loadImage(urlString: imageResponse.downloadURL))
         }
@@ -72,20 +74,32 @@ extension ImagesViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return images.count + images.count/5
+        return imagesResponse.count + imagesResponse.count/5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as! ImagesCell
         if (indexPath.row + 1) % 6 == 0{
             cell.myImage.image = #imageLiteral(resourceName: "ad placeholder")
+            cell.authorName.text = ""
         }
         else {
             cell.myImage.image = images[indexPath.row - indexPath.row/6]
+            cell.authorName.text = imagesResponse[indexPath.row - indexPath.row/6].author
         }
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if(indexPath.row - indexPath.row/6 == imagesResponse.count - 1){
+            self.page += 1
+            self.getData(page: self.page)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
     
 }
