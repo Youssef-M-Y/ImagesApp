@@ -19,6 +19,8 @@ class ImagesViewController: UIViewController {
             }
         }
     }
+    var count: Int?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,11 +54,13 @@ class ImagesViewController: UIViewController {
     }
     
     private func loadImages(){
-       // let group = DispatchGroup()
+        let group = DispatchGroup()
         
+        group.enter()
         for imageResponse in imagesResponse{
             images.append(HelperMethods.loadImage(urlString: imageResponse.downloadURL))
         }
+        group.leave()
         
     }
 }
@@ -72,12 +76,12 @@ extension ImagesViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ImagesCell
-        if indexPath.row % 5 == 0 && indexPath.row != 0{
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as! ImagesCell
+        if (indexPath.row + 1) % 6 == 0{
             cell.myImage.image = #imageLiteral(resourceName: "ad placeholder")
         }
         else {
-            cell.myImage.image = images[indexPath.row - indexPath.row/5]
+            cell.myImage.image = images[indexPath.row - indexPath.row/6]
         }
         
         return cell
