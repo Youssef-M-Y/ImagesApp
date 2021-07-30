@@ -14,12 +14,17 @@ class ImagesViewController: UIViewController {
     let reuseIdentifier = "ImagesCell"
     var imagesResponse = [ImageModel]()
     var page = 1
-
+    var selectedImage: ImageModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureTableView()
         getData(page: page)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     private func configureTableView(){
@@ -82,7 +87,13 @@ extension ImagesViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        selectedImage = imagesResponse[indexPath.row - indexPath.row/6]
+        performSegue(withIdentifier: "toImageDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! ImageDetailsViewController
+        destination.selectedImage = selectedImage
     }
     
 }

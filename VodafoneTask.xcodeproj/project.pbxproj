@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,7 @@
 		62485DBD26B072760022C506 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62485DBC26B072760022C506 /* ApiRequest.swift */; };
 		62485DC326B0733B0022C506 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62485DC226B0733B0022C506 /* ImageModel.swift */; };
 		62485DCC26B075490022C506 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62485DCB26B075490022C506 /* HelperFunctions.swift */; };
+		62886ADD26B4634F003E5153 /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62886ADC26B4634F003E5153 /* ImageDetailsViewController.swift */; };
 		7EA7E909F3058855F35D6E01 /* Pods_VodafoneTask_VodafoneTaskUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843B807020520C4A245ACBCE /* Pods_VodafoneTask_VodafoneTaskUITests.framework */; };
 		C936394F2BB97E932A493657 /* Pods_VodafoneTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A0BEB82F7D5E85C574461A /* Pods_VodafoneTask.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		62485DC226B0733B0022C506 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		62485DCB26B075490022C506 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		6277B341391D055DF16A666B /* Pods-VodafoneTask-VodafoneTaskUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VodafoneTask-VodafoneTaskUITests.debug.xcconfig"; path = "Target Support Files/Pods-VodafoneTask-VodafoneTaskUITests/Pods-VodafoneTask-VodafoneTaskUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		62886ADC26B4634F003E5153 /* ImageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewController.swift; sourceTree = "<group>"; };
 		6A9610881BB3D47C10BA6E21 /* Pods_VodafoneTaskTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VodafoneTaskTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C4F24116C502E0B0F12A45E /* Pods-VodafoneTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VodafoneTask.release.xcconfig"; path = "Target Support Files/Pods-VodafoneTask/Pods-VodafoneTask.release.xcconfig"; sourceTree = "<group>"; };
 		843B807020520C4A245ACBCE /* Pods_VodafoneTask_VodafoneTaskUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VodafoneTask_VodafoneTaskUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +113,6 @@
 				2897A725666D99919F2E233F /* Pods-VodafoneTaskTests.debug.xcconfig */,
 				C46DA7467A4DEDA1374B6020 /* Pods-VodafoneTaskTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -188,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				62485DB026B06B810022C506 /* ImagesViewController.swift */,
+				62886ADC26B4634F003E5153 /* ImageDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -465,6 +467,7 @@
 				62485D7A26B062180022C506 /* AppDelegate.swift in Sources */,
 				62485DCC26B075490022C506 /* HelperFunctions.swift in Sources */,
 				62485DB726B06D9F0022C506 /* ImagesCell.swift in Sources */,
+				62886ADD26B4634F003E5153 /* ImageDetailsViewController.swift in Sources */,
 				62485DBD26B072760022C506 /* ApiRequest.swift in Sources */,
 				62485D8426B062180022C506 /* VodafoneTask.xcdatamodeld in Sources */,
 				62485DB126B06B810022C506 /* ImagesViewController.swift in Sources */,
