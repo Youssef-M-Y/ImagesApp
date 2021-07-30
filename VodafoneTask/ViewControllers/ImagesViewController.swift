@@ -6,19 +6,13 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ImagesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     let reuseIdentifier = "ImagesCell"
     var imagesResponse = [ImageModel]()
-    var images: [UIImage] = [] {
-        didSet {
-            DispatchQueue.main.async {[weak self] in
-                self?.tableView.reloadData()
-            }
-        }
-    }
     var page = 1
 
     override func viewDidLoad() {
@@ -34,36 +28,21 @@ class ImagesViewController: UIViewController {
     }
     
     private func getData(page: Int){
-        ApiRequest(method: "GET", url: "https://picsum.photos/v2/list?page=\(page)&limit=10") {[weak self] (response, data) in
-            if response.statusCode/100 == 2{
+        DispatchQueue.global().async {
+            ApiRequest(page: "\(page)") {[weak self] (response, data) in
                 let decoder = JSONDecoder()
                 do{
                     let imagesResponse = try decoder.decode([ImageModel].self, from: data!)
                     self?.imagesResponse.append(contentsOf: imagesResponse)
-                    self?.loadImages()
-                    print(self?.imagesResponse)
+                    DispatchQueue.main.sync {
+                        self?.tableView.reloadData()
+                    }
                 }
                 catch{
                     print(error.localizedDescription)
                 }
             }
-            else {
-                print(response)
-            }
         }
-    }
-    
-    private func loadImages(){
-        let group = DispatchGroup()
-        
-        group.enter()
-        images = []
-        
-        for imageResponse in imagesResponse{
-            images.append(HelperMethods.loadImage(urlString: imageResponse.downloadURL))
-        }
-        group.leave()
-        
     }
 }
 
@@ -84,7 +63,8 @@ extension ImagesViewController: UITableViewDelegate, UITableViewDataSource{
             cell.authorName.text = ""
         }
         else {
-            cell.myImage.image = images[indexPath.row - indexPath.row/6]
+            let url = URL(string:imagesResponse[indexPath.row - indexPath.row/6].downloadURL)
+            cell.myImage.kf.setImage(with: url)
             cell.authorName.text = imagesResponse[indexPath.row - indexPath.row/6].author
         }
         
@@ -92,7 +72,10 @@ extension ImagesViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if(indexPath.row - indexPath.row/6 == imagesResponse.count - 1){
+        if imagesResponse.count == 0{
+            return
+        }
+        if(indexPath.row  == imagesResponse.count - 1){
             self.page += 1
             self.getData(page: self.page)
         }
