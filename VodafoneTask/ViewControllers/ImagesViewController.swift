@@ -49,10 +49,6 @@ class ImagesViewController: UIViewController {
             }
         }
     }
-    
-    func cacheArray(){
-        let cache = NSCache<NSString, ImageModel>()
-    }
 }
 
 extension ImagesViewController: UITableViewDelegate, UITableViewDataSource{
@@ -91,8 +87,10 @@ extension ImagesViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedImage = imagesResponse[indexPath.row - indexPath.row/6]
-        performSegue(withIdentifier: "toImageDetails", sender: self)
+        if (indexPath.row + 1) % 6 != 0{
+            selectedImage = imagesResponse[indexPath.row - indexPath.row/6]
+            performSegue(withIdentifier: "toImageDetails", sender: self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
