@@ -49,6 +49,10 @@ class ImagesViewController: UIViewController {
             }
         }
     }
+    
+    func cacheArray(){
+        let cache = NSCache<NSString, ImageModel>()
+    }
 }
 
 extension ImagesViewController: UITableViewDelegate, UITableViewDataSource{

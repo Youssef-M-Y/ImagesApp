@@ -18,16 +18,21 @@ class ImageDetailsViewController: UIViewController {
         configureImageAndAuthor()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+        configureBackgroundColour()
+    }
+    
     func configureImageAndAuthor(){
         let url = URL(string: selectedImage!.downloadURL)
         fullImage.kf.setImage(with: url)
         authorName.text = selectedImage?.author
+        authorName.addshadow()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = false
+    func configureBackgroundColour(){
+        self.view.backgroundColor = self.fullImage.image?.averageColor
     }
     
-
 }

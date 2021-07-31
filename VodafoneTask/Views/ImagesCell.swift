@@ -15,11 +15,7 @@ class ImagesCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        authorName.layer.shadowColor = UIColor.black.cgColor
-        authorName.layer.shadowRadius = 3.0
-        authorName.layer.shadowOpacity = 1.0
-        authorName.layer.shadowOffset = CGSize(width: 4, height: 4)
-        authorName.layer.masksToBounds = false
+        authorName.addshadow()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
